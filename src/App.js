@@ -1,8 +1,8 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import SearchIcon from "./search.svg";
-import CompanyCard from "./CompanyCard";
 import config from "./config";
+import CompanyCard from "./components/CompanyCard";
 import Header from "./components/header";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
@@ -25,22 +25,21 @@ const App = () => {
 
 
 
+
     return (
         <div className="app">
             <Header />
             <Navbar />
-            <Search />
-            <div className="search">
-                <input 
+            
+            <div class="form-group">
+                <input class="form-control"
                 placeholder="Search for companies"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}>
                 </input>
-                <img 
-                src={SearchIcon}
-                alt="search"
-                onClick={() => searchCompanies(searchTerm)}/>
             </div>
+            <button type="submit" class="btn btn-primary" onClick={() => searchCompanies(searchTerm)}>Submit</button>
+
 
             {
                 companies?.length > 0 
