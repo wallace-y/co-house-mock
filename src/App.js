@@ -4,7 +4,7 @@ import config from "./config";
 import CompanyCard from "./components/CompanyCard";
 import Header from "./components/header";
 import Navbar from "./components/Navbar";
-import { Container, Row,Col } from "react-bootstrap";
+import { Container, Row} from "react-bootstrap";
 
 
 const App = () => {
