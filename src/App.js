@@ -3,7 +3,8 @@ import { useState,useEffect } from "react";
 import SearchIcon from "./search.svg";
 import CompanyCard from "./CompanyCard";
 import config from "./config";
-
+import Header from "./components/header";
+import Navbar from "./components/Navbar";
 
 const App = () => {
     const [companies,setCompanies] = useState([]);
@@ -25,7 +26,8 @@ const App = () => {
 
     return (
         <div className="app">
-            <h1>Simple CoHouse Mock</h1>
+            <Header />
+            <Navbar />
             <div className="search">
                 <input 
                 placeholder="Search for companies"
