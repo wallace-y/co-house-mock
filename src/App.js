@@ -1,11 +1,9 @@
 import React from "react";
 import { useState,useEffect } from "react";
-import SearchIcon from "./search.svg";
 import config from "./config";
 import CompanyCard from "./components/CompanyCard";
 import Header from "./components/header";
 import Navbar from "./components/Navbar";
-import Search from "./components/Search";
 
 const App = () => {
     const [companies,setCompanies] = useState([]);
@@ -31,14 +29,18 @@ const App = () => {
             <Header />
             <Navbar />
             
-            <div class="form-group">
-                <input class="form-control"
+            <div class="input-group">
+                <input class="form-control rounded"
                 placeholder="Search for companies"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}>
                 </input>
+                <button type="submit" class="btn btn-primary" onClick={() => searchCompanies(searchTerm)}>Submit</button>
+
             </div>
-            <button type="submit" class="btn btn-primary" onClick={() => searchCompanies(searchTerm)}>Submit</button>
+            
+
+
 
 
             {
