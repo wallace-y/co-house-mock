@@ -4,6 +4,8 @@ import config from "./config";
 import CompanyCard from "./components/CompanyCard";
 import Header from "./components/header";
 import Navbar from "./components/Navbar";
+import { Container, Row,Col } from "react-bootstrap";
+
 
 const App = () => {
     const [companies,setCompanies] = useState([]);
@@ -35,29 +37,36 @@ const App = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}>
                 </input>
-                <button type="submit" class="btn btn-dark" onClick={() => searchCompanies(searchTerm)}>Submit</button>
-
+                <button 
+                    type="submit" 
+                    class="btn btn-dark" 
+                    onClick={() => searchCompanies(searchTerm)}
+                    >Submit
+                </button>
             </div>
             
 
-
-
+{/* creating container for the company cards */}
 
             {
                 companies?.length > 0 
                 ? (
-                    <div className="container">
-                        {companies.map((company) => (
-                            <CompanyCard company={company}/>
-                        ))}
-                    </div>
+                    <Container>
+                        <Row>
+                                {companies.map((company) => (
+                                <CompanyCard company={company}/>
+                            ))}
+                        </Row>
+
+                    </Container>
                 ) : (
                     <div className="empty">
                         <h2>No companies found</h2>
                     </div>
                 )
             }
-        </div>
+
+    </div>
     
     );
 }
