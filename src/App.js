@@ -5,6 +5,7 @@ import CompanyCard from "./CompanyCard";
 import config from "./config";
 import Header from "./components/header";
 import Navbar from "./components/Navbar";
+import Search from "./components/Search";
 
 const App = () => {
     const [companies,setCompanies] = useState([]);
@@ -28,6 +29,7 @@ const App = () => {
         <div className="app">
             <Header />
             <Navbar />
+            <Search />
             <div className="search">
                 <input 
                 placeholder="Search for companies"
