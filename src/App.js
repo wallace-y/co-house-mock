@@ -35,7 +35,9 @@ const App = () => {
                 <input class="form-control rounded"
                 placeholder="Search for companies"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}>
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onBeforeInput={() => searchCompanies(searchTerm)}
+                >
                 </input>
                 <button 
                     type="submit" 
