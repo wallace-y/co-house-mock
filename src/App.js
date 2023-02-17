@@ -31,8 +31,14 @@ const App = () => {
             <Header />
             <Navbar />
             
-            <div class="input-group">
-                <input class="form-control rounded"
+            
+{/* creating new hero */}
+            <div class="px-4 py-5 my-5 text-center">
+                <h1 class="display-5 fw-bold">Company Search</h1>
+                <div class="col-lg-6 mx-auto">
+                        <p class="lead mb-4">Search for any real-life company from the live register of companies from Companies House.</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <input class="form-control rounded"
                 placeholder="Search for companies"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -41,10 +47,14 @@ const App = () => {
                 </input>
                 <button 
                     type="submit" 
-                    class="btn btn-dark" 
+                    class="btn btn-dark btn-lg px-4 gap-3" 
                     onClick={() => searchCompanies(searchTerm)}
-                    >Submit
+                    >Search
                 </button>
+
+                        
+                    </div>
+                </div>
             </div>
             
 
