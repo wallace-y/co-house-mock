@@ -1,25 +1,23 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import SearchIcon from "./search.svg";
-import MovieCard from "./MovieCard";
-import "./App.css";
-
-const API_URL = "http://www.omdbapi.com/?apikey=290419c1"
+import CompanyCard from "./CompanyCard";
+import config from "./config";
 
 
 const App = () => {
-    const [movies,setMovies] = useState([]);
+    const [companies,setCompanies] = useState([]);
     const [searchTerm, setSearchTerm] = useState("")
 
-    const searchMovies = async (title) => {
-        const response  = await fetch(`${API_URL}&s=${title}`);
+    const searchCompanies = async (companyName) => {
+        const response  = await fetch(`${config.API_URL}?q=${companyName}`,config.API_settings);
         const data  = await response.json();
 
-        setMovies(data.Search)
+        setCompanies(data.items)
     }
 
     useEffect(() => {
-        searchMovies("Spiderman")
+        searchCompanies("tesco")
 
     }, [])
 
@@ -27,30 +25,30 @@ const App = () => {
 
     return (
         <div className="app">
-            <h1>MovieLand</h1>
+            <h1>Simple CoHouse Mock</h1>
             <div className="search">
                 <input 
-                placeholder="Search for movies"
+                placeholder="Search for companies"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}>
                 </input>
                 <img 
                 src={SearchIcon}
                 alt="search"
-                onClick={() => searchMovies(searchTerm)}/>
+                onClick={() => searchCompanies(searchTerm)}/>
             </div>
 
             {
-                movies?.length > 0 
+                companies?.length > 0 
                 ? (
                     <div className="container">
-                        {movies.map((movie) => (
-                            <MovieCard movie={movie}/>
+                        {companies.map((company) => (
+                            <CompanyCard company={company}/>
                         ))}
                     </div>
                 ) : (
                     <div className="empty">
-                        <h2>No movies found</h2>
+                        <h2>No companies found</h2>
                     </div>
                 )
             }

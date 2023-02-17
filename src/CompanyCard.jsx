@@ -1,22 +1,13 @@
 import React from 'react';
 
-const CompanyCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
+const CompanyCard = ({ company: { company_number,company_status,date_of_creation,title } }) => {
   return (
-    <div className="movie" key={imdbID}>
+    <div className="company" key={company_number}>
       <div>
-        <p>{Year}</p>
-      </div>
-
-      <div>
-        <img src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={Title} />
-      </div>
-
-      <div>
-        <span>{Type}</span>
-        <h3>{Title}</h3>
+        <h3>{title}</h3>
       </div>
     </div>
   );
 }
 
-export default MovieCard;
+export default CompanyCard;
