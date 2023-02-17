@@ -35,7 +35,7 @@ const App = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}>
                 </input>
-                <button type="submit" class="btn btn-primary" onClick={() => searchCompanies(searchTerm)}>Submit</button>
+                <button type="submit" class="btn btn-dark" onClick={() => searchCompanies(searchTerm)}>Submit</button>
 
             </div>
             
